@@ -1,7 +1,6 @@
-import Section from "./Section";
 import styled from "styled-components/macro";
 
-export const StyledSection = styled.section`
+export default styled.section`
   margin: auto;
   padding-bottom: 5vh;
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 interface IMenuitemsProps {
   external?: boolean;
@@ -27,6 +28,15 @@ export const Li = styled.li`
 `;
 
 export const A = styled.a`
+  color: white;
+  text-decoration: none;
+
+  :hover {
+    color: #007acc;
+  }
+`;
+
+export const StyledNavLink = styled(NavLink)`
   color: white;
   text-decoration: none;
 

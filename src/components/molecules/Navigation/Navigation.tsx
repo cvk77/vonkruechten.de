@@ -1,25 +1,30 @@
 import React, { Component } from "react";
-import { Li, A, Menu, MenuItems } from "./Styled";
+import { Li, A, Menu, MenuItems, StyledNavLink } from "./Styled";
+import { NavLink } from "react-router-dom";
+import { LocationDescriptor } from "history";
+import { Xing, Twitter, GitHub } from "../../atoms/Icons/Icons";
 
 interface IMenuItemProps {
-  href?: string;
+  href: LocationDescriptor<any>;
   label: string;
 }
 
-interface IMenuItemExternalProps extends IMenuItemProps {
-  icon: string;
+interface IMenuItemExternalProps {
+  href: string;
+  label: string;
+  icon: JSX.Element;
 }
 
 const MenuItem = ({ href, label }: IMenuItemProps) => (
   <Li>
-    <A href={href}>{label}</A>
+    <StyledNavLink to={href}>{label}</StyledNavLink>
   </Li>
 );
 
 const MenuItemExternal = ({ href, label, icon }: IMenuItemExternalProps) => (
   <Li>
-    <A className={icon + " icon"} rel="me" href={href}>
-      {label}
+    <A rel="me" href={href}>
+      {icon}
     </A>
   </Li>
 );
@@ -28,24 +33,23 @@ const Navigation = () => (
   <>
     <Menu>
       <MenuItems>
-        <MenuItem href="#about-me" label="Über mich" />
-        <MenuItem href="#services" label="Leistungen" />
-        <MenuItem href="#contact" label="Kontakt / Impressum" />
-        <MenuItem href="#data-protection" label="Datenschutzerklärung" />
+        <MenuItem href="about-me" label="Über mich" />
+        <MenuItem href="contact" label="Kontakt / Impressum" />
+        <MenuItem href="data-protection" label="Datenschutzerklärung" />
       </MenuItems>
       <MenuItems external={true}>
         <MenuItemExternal
-          icon="xing"
+          icon={<Xing />}
           href="https://www.xing.com/profile/Christoph_vonKruechten"
           label="Xing"
         />
         <MenuItemExternal
-          icon="github"
+          icon={<GitHub />}
           href="https://github.com/cvk77/"
           label="GitHub"
         />
         <MenuItemExternal
-          icon="twitter"
+          icon={<Twitter />}
           href="https://twitter.com/cvk77"
           label="Twitter"
         />
