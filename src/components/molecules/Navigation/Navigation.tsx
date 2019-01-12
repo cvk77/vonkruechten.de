@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Li, A, Menu, MenuItems, StyledNavLink } from "./Styled";
-import { NavLink } from "react-router-dom";
 import { LocationDescriptor } from "history";
 import { Xing, Twitter, GitHub } from "../../atoms/Icons/Icons";
 
@@ -39,9 +38,9 @@ const Navigation = () => (
       </MenuItems>
       <MenuItems external={true}>
         <MenuItemExternal
-          icon={<Xing />}
-          href="https://www.xing.com/profile/Christoph_vonKruechten"
-          label="Xing"
+          icon={<Twitter />}
+          href="https://twitter.com/cvk77"
+          label="Twitter"
         />
         <MenuItemExternal
           icon={<GitHub />}
@@ -49,9 +48,9 @@ const Navigation = () => (
           label="GitHub"
         />
         <MenuItemExternal
-          icon={<Twitter />}
-          href="https://twitter.com/cvk77"
-          label="Twitter"
+          icon={<Xing />}
+          href="https://www.xing.com/profile/Christoph_vonKruechten"
+          label="Xing"
         />
       </MenuItems>
     </Menu>

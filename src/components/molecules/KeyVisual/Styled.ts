@@ -37,12 +37,12 @@ export const Header = styled.header`
   }
 
   @media screen and (min-width: 700px) {
-    height: 60vh;
+    height: 40vh;
     font-size: 3vh;
     padding-top: 0;
 
     & > div {
-      top: 25vh;
+      top: 15vh;
       line-height: 10vh;
       text-shadow: 1px 1px 2px black;
     }
