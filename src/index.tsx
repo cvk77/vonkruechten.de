@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
 
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import GlobalStyle from "./components/GlobalStyle";
+import { ThemeProvider } from "styled-components";
+import { App, GlobalStyle } from "./components/_meta";
 import { theme } from "./theme";
 
 ReactDOM.render(
