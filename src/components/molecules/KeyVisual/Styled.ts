@@ -23,7 +23,7 @@ export const Header = styled.header`
   background-image: url(/assets/images/blaetter.jpg);
   background-attachment: local;
   background-size: cover;
-  padding: 30px 0;
+  padding: 60px 0 30px 0;
   margin: 0;
   border-bottom: 2px solid #354200;
 
@@ -37,12 +37,12 @@ export const Header = styled.header`
   }
 
   @media screen and (min-width: 700px) {
-    height: 40vh;
+    height: 50vh;
     font-size: 3vh;
     padding-top: 0;
 
     & > div {
-      top: 15vh;
+      top: 20vh;
       line-height: 10vh;
       text-shadow: 1px 1px 2px black;
     }

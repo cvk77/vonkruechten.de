@@ -8,7 +8,6 @@ interface IMenuitemsProps {
 export const MenuItems = styled.ul`
   position: absolute;
   padding-left: 18px;
-
   right: ${(props: IMenuitemsProps) => (props.external ? "0" : "auto")};
 `;
 
@@ -24,7 +23,7 @@ export const Menu = styled.nav`
 
 export const Li = styled.li`
   display: inline;
-  padding-right: 20px;
+  padding-right: 15px;
 `;
 
 export const A = styled.a`

@@ -33,8 +33,8 @@ const Navigation = () => (
     <Menu>
       <MenuItems>
         <MenuItem href="about-me" label="Über mich" />
-        <MenuItem href="contact" label="Kontakt / Impressum" />
-        <MenuItem href="data-protection" label="Datenschutzerklärung" />
+        <MenuItem href="contact" label="Impressum" />
+        <MenuItem href="data-protection" label="Datenschutz" />
       </MenuItems>
       <MenuItems external={true}>
         <MenuItemExternal
