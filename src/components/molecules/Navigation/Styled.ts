@@ -1,45 +1,22 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { HTMLAttributes } from "react";
 
-interface IMenuitemsProps {
+interface IMenuitemsProps extends HTMLAttributes<HTMLUListElement> {
   external?: boolean;
 }
 
-export const MenuItems = styled.ul`
+export const Ul = styled.ul`
   position: absolute;
   padding-left: 18px;
   right: ${(props: IMenuitemsProps) => (props.external ? "0" : "auto")};
 `;
 
-export const Menu = styled.nav`
+export const Nav = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
   height: 50px;
-  background: rgba(0, 0, 0, 0.4);
+  background: ${props => props.theme.bgDark};
   z-index: 100;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-`;
-
-export const Li = styled.li`
-  display: inline;
-  padding-right: 15px;
-`;
-
-export const A = styled.a`
-  color: white;
-  text-decoration: none;
-
-  :hover {
-    color: #007acc;
-  }
-`;
-
-export const StyledNavLink = styled(NavLink)`
-  color: white;
-  text-decoration: none;
-
-  :hover {
-    color: #007acc;
-  }
 `;

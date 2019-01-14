@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
-const Li = styled.li`
+export const ListLi = styled.li`
   list-style-type: square;
   margin-left: 0;
 `;
 
-export default Li;
+export const InlineLi = styled.li`
+  display: inline;
+  padding-right: 15px;
+`;
