@@ -1,20 +1,7 @@
 import React, { Component } from "react";
-import styled, { ThemeProvider } from "styled-components/macro";
-import {
-  AboutMe,
-  Services,
-  Contact,
-  DataProtection,
-  KeyVisual,
-  Navigation
-} from "../../molecules";
+import { KeyVisual, Navigation } from "../../molecules";
 import { Content } from "./Styled";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import AboutPage from "../../pages/AboutPage/AboutPage";
 import ContactPage from "../../pages/ContactPage/ContactPage";
@@ -29,9 +16,13 @@ const App = () => (
         <Route path="/" exact={true}>
           <Redirect to="/about-me" />
         </Route>
-        <Route path="/about-me" component={AboutPage} />
-        <Route path="/contact/" component={ContactPage} />
-        <Route path="/data-protection/" component={DataProtectionPage} />
+        <Route path="/about-me" exact={true} component={AboutPage} />
+        <Route path="/contact" exact={true} component={ContactPage} />
+        <Route
+          path="/data-protection"
+          exact={true}
+          component={DataProtectionPage}
+        />
       </Content>
     </main>
   </Router>

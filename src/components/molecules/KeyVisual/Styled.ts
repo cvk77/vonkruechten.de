@@ -1,5 +1,10 @@
 import styled from "styled-components/macro";
 
+export const Div = styled.div`
+  background-color: black;
+  position: sticky;
+`;
+
 export const H1 = styled.h1`
   font-weight: lighter;
   margin: 0;
