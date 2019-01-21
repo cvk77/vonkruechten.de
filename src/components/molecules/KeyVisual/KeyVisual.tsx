@@ -1,54 +1,51 @@
 import React, { Component } from "react";
 import { Header, H1, H2, Div } from "./Styled";
 import { Ref } from "react";
+import { observer } from "mobx-react";
+import KeyVisualStore from "../../../stores/KeyVisualStore";
 
-interface IKeyVisualState {
-  opacity: number;
-  headerHeight: number;
+interface IKeyVisualProps {
+  store: KeyVisualStore;
 }
 
-const initialState: IKeyVisualState = {
-  headerHeight: 0,
-  opacity: 1
-};
-
-class KeyVisual extends React.Component<{}, IKeyVisualState> {
-  public readonly state: IKeyVisualState = initialState;
+@observer
+class KeyVisual extends React.Component<IKeyVisualProps, {}> {
   private headerRef = React.createRef<HTMLDivElement>();
 
-  constructor(props: {}) {
+  constructor(props: IKeyVisualProps) {
     super(props);
-    this.handleScroll = this.handleScroll.bind(this);
+    this.onScroll = this.onScroll.bind(this);
+    this.onResize = this.onResize.bind(this);
   }
 
   public componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
-    this.handleScroll();
+    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("resize", this.onResize);
+    this.onScroll();
+    this.onResize();
   }
 
-  public handleScroll() {
+  public onResize() {
     if (this.headerRef.current === null) {
       return;
     }
+    this.props.store.headerHeight = this.headerRef.current.clientHeight;
+  }
 
+  public onScroll() {
     const scrollTop = Math.max(
       window.pageYOffset,
       document.documentElement.scrollTop,
       document.body.scrollTop
     );
-    const headerHeight = this.headerRef.current.clientHeight;
-    const percentVisible = (headerHeight - scrollTop) / headerHeight;
-
-    this.setState({
-      headerHeight,
-      opacity: percentVisible < 0 ? 0 : percentVisible
-    });
+    this.props.store.scrollTop = scrollTop;
   }
 
   public render() {
+    const { headerHeight, percentVisible, topPosition } = this.props.store;
     return (
-      <Div ref={this.headerRef} style={{ top: -this.state.headerHeight + 50 }}>
-        <Header style={{ opacity: this.state.opacity }}>
+      <Div ref={this.headerRef} style={{ top: topPosition }}>
+        <Header style={{ opacity: percentVisible }}>
           <div>
             <H1>Christoph von Krüchten</H1>
             <H2>Softwarearchitektur, -Konzeption, -Entwicklung</H2>

@@ -6,12 +6,15 @@ import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import AboutPage from "../../pages/AboutPage/AboutPage";
 import ContactPage from "../../pages/ContactPage/ContactPage";
 import DataProtectionPage from "../../pages/DataProtectionPage/DataProtectionPage";
+import KeyVisualStore from "../../../stores/KeyVisualStore";
+
+const keyVisualStore = new KeyVisualStore();
 
 const App = () => (
   <Router>
     <main>
       <Navigation />
-      <KeyVisual />
+      <KeyVisual store={keyVisualStore} />
       <Content>
         <Route path="/" exact={true}>
           <Redirect to="/about-me" />
