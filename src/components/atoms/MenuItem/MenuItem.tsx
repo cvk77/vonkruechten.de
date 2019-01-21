@@ -10,7 +10,18 @@ interface IMenuItemProps {
 
 const MenuItem = ({ href, label }: IMenuItemProps) => (
   <Li inline={true}>
-    <StyledNavLink to={href}>{label}</StyledNavLink>
+    <StyledNavLink
+      smooth={true}
+      to={href}
+      scroll={(el: any) =>
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        })
+      }
+    >
+      {label}
+    </StyledNavLink>
   </Li>
 );
 

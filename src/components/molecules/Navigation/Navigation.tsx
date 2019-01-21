@@ -7,9 +7,9 @@ import { MenuItem, MenuItemExternal } from "../../atoms";
 const Navigation = () => (
   <Nav>
     <Ul>
-      <MenuItem href="about-me" label="Über mich" />
-      <MenuItem href="contact" label="Impressum" />
-      <MenuItem href="data-protection" label="Datenschutz" />
+      <MenuItem href="/#top" label="Über mich" />
+      <MenuItem href="/#contact" label="Impressum" />
+      <MenuItem href="/data-protection#top" label="Datenschutz" />
     </Ul>
     <Ul external={true}>
       <MenuItemExternal

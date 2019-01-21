@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { AboutMe, Services } from "../../molecules";
+import { AboutMe, Services, Contact } from "../../molecules";
 
 const AboutPage = () => (
   <>
     <AboutMe />
     <Services />
+    <Contact />
   </>
 );
 
