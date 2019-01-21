@@ -31,12 +31,16 @@ class KeyVisual extends React.Component<{}, IKeyVisualState> {
       return;
     }
 
-    const offset = document.documentElement.scrollTop;
-    const height = this.headerRef.current.clientHeight;
-    const percentVisible = (height - offset) / height;
+    const scrollTop = Math.max(
+      window.pageYOffset,
+      document.documentElement.scrollTop,
+      document.body.scrollTop
+    );
+    const headerHeight = this.headerRef.current.clientHeight;
+    const percentVisible = (headerHeight - scrollTop) / headerHeight;
 
     this.setState({
-      headerHeight: height,
+      headerHeight,
       opacity: percentVisible < 0 ? 0 : percentVisible
     });
   }
