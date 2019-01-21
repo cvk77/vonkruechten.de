@@ -9,6 +9,8 @@ export const Ul = styled.ul`
   position: absolute;
   padding-left: 18px;
   right: ${(props: IMenuitemsProps) => (props.external ? "0" : "auto")};
+  margin: 0;
+  line-height: 50px;
 `;
 
 export const Nav = styled.nav`

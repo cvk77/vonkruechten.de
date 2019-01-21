@@ -8,4 +8,9 @@ export const ListLi = styled.li`
 export const InlineLi = styled.li`
   display: inline;
   padding-right: 15px;
+
+  svg {
+    position: relative;
+    top: 5px;
+  }
 `;
