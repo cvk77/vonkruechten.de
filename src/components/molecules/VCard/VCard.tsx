@@ -15,7 +15,7 @@ const VCard = () => (
         <span className="family-name">von Krüchten</span>
       </Anchor>
       <br />
-      <div>Konzeption, Implementierung und Pflege von Softwaresystemen</div>
+      <div>Softwarearchitektur, -Konzeption, -Entwicklung</div>
       <div className="adr">
         <span className="street-address">Siebachstr. 117</span>
         <br />
