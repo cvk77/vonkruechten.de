@@ -21,14 +21,11 @@ describe("KeyVisualStore", () => {
     ${100} | ${95}  | ${0.05}
     ${100} | ${100} | ${0}
     ${100} | ${101} | ${0}
-  `(
-    "computes the correct percentVisible for $h and $s",
-    ({ h, s, expected }) => {
-      store.headerHeight = h;
-      store.scrollTop = s;
-      expect(store.percentVisible).toBe(expected);
-    }
-  );
+  `("computes the correct percentVisible for $h and $s", ({ h, s, expected }) => {
+    store.headerHeight = h;
+    store.scrollTop = s;
+    expect(store.percentVisible).toBe(expected);
+  });
 
   it.each`
     h      | expected

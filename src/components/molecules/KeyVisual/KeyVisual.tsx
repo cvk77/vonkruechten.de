@@ -33,11 +33,7 @@ class KeyVisual extends React.Component<IKeyVisualProps, {}> {
   }
 
   public onScroll() {
-    const scrollTop = Math.max(
-      window.pageYOffset,
-      document.documentElement.scrollTop,
-      document.body.scrollTop
-    );
+    const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
     this.props.store.scrollTop = scrollTop;
   }
 

@@ -16,11 +16,7 @@ const App = () => (
       <KeyVisual store={keyVisualStore} />
       <Content id="top">
         <Route path="/" exact={true} component={AboutPage} />
-        <Route
-          path="/data-protection"
-          exact={true}
-          component={DataProtectionPage}
-        />
+        <Route path="/data-protection" exact={true} component={DataProtectionPage} />
       </Content>
     </main>
   </Router>

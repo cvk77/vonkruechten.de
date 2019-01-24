@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "../../../styled-components";
 import { NavHashLink as NavLink } from "react-router-hash-link";
 
 export const StyledNavLink = styled(NavLink)`

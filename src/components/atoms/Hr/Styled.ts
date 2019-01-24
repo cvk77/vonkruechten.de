@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from "../../../styled-components";
 
 export const Hr = styled.hr`
   margin: 2em 0;

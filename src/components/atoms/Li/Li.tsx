@@ -7,7 +7,6 @@ interface ILiProps extends HTMLAttributes<HTMLLIElement> {
   inline?: boolean;
 }
 
-const Li = (props: ILiProps) =>
-  React.createElement(props.inline ? InlineLi : ListLi, props);
+const Li = (props: ILiProps) => React.createElement(props.inline ? InlineLi : ListLi, props);
 
 export default Li;

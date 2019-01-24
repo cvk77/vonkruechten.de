@@ -1,7 +1,6 @@
-import { createGlobalStyle } from "styled-components/macro";
-import { ThemeType } from "../../../theme";
+import { createGlobalStyle } from "../../../styled-components";
 
-const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
+const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
