@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
 import { Header, H1, H2, Div } from "./Styled";
-import { useStickyTop, usePercentageVisible } from "../../../hooks/effects";
+import { useStickyTop, usePercentageVisible, useScrollPosition, useWindowSize } from "../../../hooks/effects";
 
 const KeyVisual = () => {
   const headerRef = useRef(null);
-  const topPosition = useStickyTop(headerRef, 50);
-  const percentageVisible = Math.sin(usePercentageVisible(headerRef, 50) * 1.571);
+  const scrollTop = useScrollPosition();
+  const windowSize = useWindowSize();
+  const topPosition = useStickyTop(windowSize, headerRef, 50);
+  const percentageVisible = Math.sin(usePercentageVisible(windowSize, scrollTop, headerRef, 50) * 1.571);
 
   return (
     <Div ref={headerRef} style={{ top: topPosition }}>

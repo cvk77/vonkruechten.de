@@ -38,25 +38,27 @@ export const useWindowSize = () => {
  * @param ref The element
  * @param offset Offset from screen top to use
  */
-export const usePercentageVisible = (ref: RefObject<HTMLElement>, offset: number = 0) => {
+export const usePercentageVisible = (
+  windowSize: number[],
+  scrollPosition: number,
+  ref: RefObject<HTMLElement>,
+  offset: number = 0
+) => {
   const [percentage, setPercentage] = useState(1);
-  const [w, h] = useWindowSize();
-  const y = useScrollPosition() + offset;
   useEffect(() => {
     if (ref.current != null) {
-      setPercentage(calculatePercentage(ref.current.clientHeight, y));
+      setPercentage(calculatePercentage(ref.current.clientHeight, scrollPosition));
     }
-  }, [w, h, y]);
+  }, [...windowSize, scrollPosition]);
   return percentage;
 };
 
-export const useStickyTop = (ref: RefObject<HTMLElement>, offset: number = 0) => {
+export const useStickyTop = (windowSize: number[], ref: RefObject<HTMLElement>, offset: number = 0) => {
   const [top, setTop] = useState(1);
-  const [w, h] = useWindowSize();
   useEffect(() => {
     if (ref.current != null) {
       setTop(-ref.current.clientHeight + offset);
     }
-  }, [w, h]);
+  }, [...windowSize]);
   return top;
 };
