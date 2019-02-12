@@ -1,22 +1,21 @@
 package de.vonkruechten.content.repositories
 
 import de.vonkruechten.content.entities.Person
-import de.vonkruechten.content.entities.Models
-import io.requery.sql.KotlinConfiguration
-import io.requery.sql.KotlinEntityDataStore
-import javax.sql.DataSource
+import io.requery.kotlin.BlockingEntityStore
+import io.requery.kotlin.eq
+import io.requery.kotlin.get
 
-object PersonRepository {
+class PersonRepository(private val entityStore: BlockingEntityStore<Person>) {
 
-
-    fun all(ds: DataSource) {
-        val configuration = KotlinConfiguration(dataSource = ds, model = Models.DEFAULT)
-        val data: KotlinEntityDataStore<Any> = KotlinEntityDataStore(configuration)
-        data.invoke {
-            val result = data.select(Person::class).get()
-            result.forEach { println(it) }
-
+    fun one(id: String): Person {
+        return entityStore.invoke {
+            val result = select(Person::class) where (Person::id eq id)
+             result.get().single()
         }
+    }
+
+    fun all(): List<Person> {
+        return entityStore.select(Person::class).get().toList()
     }
 
 }
