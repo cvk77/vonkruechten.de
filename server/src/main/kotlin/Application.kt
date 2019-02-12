@@ -2,6 +2,7 @@ package de.vonkruechten.server
 
 import de.vonkruechten.domain.exceptions.PageNotFoundException
 import de.vonkruechten.server.modules.contentModule
+import de.vonkruechten.content.*
 import io.ktor.application.*
 import io.ktor.features.ContentNegotiation
 import io.ktor.features.StatusPages
@@ -29,7 +30,6 @@ fun Application.mainModule() {
         }
     }
 
-
     routing {
         contentModule(kodein)
     }
@@ -37,8 +37,8 @@ fun Application.mainModule() {
 
 fun main() {
     embeddedServer(
-            factory = Netty,
-            port = 8080,
-            module = Application::mainModule
+             factory = Netty,
+             port = 8080,
+             module = Application::mainModule
     ).start(wait = true)
 }

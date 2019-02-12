@@ -1,4 +1,5 @@
 rootProject.name = 'vonkruechten.de'
 include 'web'
 include 'domain'
+include 'content'
 include 'server'

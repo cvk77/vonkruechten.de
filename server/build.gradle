@@ -1,14 +1,28 @@
+buildscript {
+    dependencies {
+        classpath "com.h2database:h2:$h2_version"
+    }
+}
+
 plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'application'
+    id 'org.flywaydb.flyway' version '5.2.4'
 }
 
 mainClassName = 'de.vonkruechten.server.ApplicationKt'
 
 dependencies {
     implementation project(":domain")
+    implementation project(":content")
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+    implementation "com.h2database:h2:$h2_version"
+}
+
+flyway {
+    url = 'jdbc:h2:file:~/foobar'
+    user = 'sa'
 }
