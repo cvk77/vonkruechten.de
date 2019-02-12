@@ -20,9 +20,13 @@ dependencies {
     implementation "io.ktor:ktor-jackson:$ktor_version"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
     implementation "com.h2database:h2:$h2_version"
+    implementation "com.zaxxer:HikariCP:$hikari_version"
+    implementation "com.h2database:h2:$h2_version"
 }
 
 flyway {
     url = 'jdbc:h2:file:~/foobar'
     user = 'sa'
 }
+
+run.dependsOn flywayMigrate

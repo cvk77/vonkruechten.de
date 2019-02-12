@@ -3,13 +3,19 @@ plugins {
     id 'org.jetbrains.kotlin.kapt'
 }
 
-dependencies {
-    implementation project(":domain")
-    
-    implementation "com.zaxxer:HikariCP:$hikari_version"
-    api "com.h2database:h2:$h2_version"
+sourceSets {
+    main.java.srcDirs += "build/generated/source/kapt/main"
+}
 
-    compile 'io.requery:requery:1.5.1'
-    compile 'io.requery:requery-kotlin:1.5.1'
+kapt {
+    includeCompileClasspath = false
+}
+
+dependencies {
+    api project(":domain")
+
+    api 'io.requery:requery:1.5.1'
+    api 'io.requery:requery-kotlin:1.5.1'
+
     kapt 'io.requery:requery-processor:1.5.1' 
 }
