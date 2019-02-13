@@ -19,6 +19,7 @@ fun Application.contentModule(kodein: Kodein) {
     val pageService: PageService by kodein.instance()
 
     routing {
+        
         get() {
             call.respond(pageService.all())
         }
@@ -27,6 +28,7 @@ fun Application.contentModule(kodein: Kodein) {
             val id = call.parameters.get("id") ?: throw BadRequestException("Parameter 'id' missing")
             call.respond(pageService.one(id))
         }
+
     }
 }
 

@@ -4,14 +4,15 @@ import io.requery.*
 
 @Entity
 @Table(name = "page")
-data class PageEntity constructor (
+interface PageEntity : Persistable {
 
     @get:Key
-    val id: String?,
+    val id: String?
     
-    var title: String?,
+    var title: String?
+    
+    @get:OneToMany(cascade = [CascadeAction.DELETE, CascadeAction.SAVE])
+    @get:OrderBy("ordering")
+    var blocks: Set<BlockEntity>
 
-    var content: String?
-) {
-    constructor() : this(null, null, null)
 }
