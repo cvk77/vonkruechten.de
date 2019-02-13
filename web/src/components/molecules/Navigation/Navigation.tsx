@@ -12,21 +12,9 @@ const Navigation = () => (
       <MenuItem href="/data-protection#top" label="Datenschutz" />
     </Ul>
     <Ul external={true}>
-      <MenuItemExternal
-        icon={<Twitter />}
-        href="https://twitter.com/cvk77"
-        label="Twitter"
-      />
-      <MenuItemExternal
-        icon={<GitHub />}
-        href="https://github.com/cvk77/"
-        label="GitHub"
-      />
-      <MenuItemExternal
-        icon={<Xing />}
-        href="https://www.xing.com/profile/Christoph_vonKruechten"
-        label="Xing"
-      />
+      <MenuItemExternal icon={<Twitter />} href="https://twitter.com/cvk77" label="Twitter" />
+      <MenuItemExternal icon={<GitHub />} href="https://github.com/cvk77/" label="GitHub" />
+      <MenuItemExternal icon={<Xing />} href="https://www.xing.com/profile/Christoph_vonKruechten" label="Xing" />
     </Ul>
   </Nav>
 );

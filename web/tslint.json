@@ -3,14 +3,10 @@
   "rules": {
     "ordered-imports": false,
     "no-console": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "max-line-length": [true, { "limit": 120, "ignore-pattern": "^import |^export {(.*?)}" }]
   },
   "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "**/*.json",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
-    ]
+    "exclude": ["config/**/*.js", "**/*.json", "node_modules/**/*.ts", "coverage/lcov-report/*.js"]
   }
 }

@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import ContentBlock from '../ContentBlock/ContentBlock';
-import { Anchor } from '../../atoms';
+import React, { Component } from "react";
+import ContentBlock from "../ContentBlock/ContentBlock";
+import { Anchor } from "../../atoms";
 
+// prettier-ignore
 const DataProtection = () => (
     <ContentBlock id="data-protection" title="Datenschutzerklärung">
         <p>Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der EU-Datenschutzgrundverordnung (DSGVO), ist:</p>

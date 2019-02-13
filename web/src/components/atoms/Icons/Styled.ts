@@ -1,4 +1,4 @@
-import styled, { ThemedStyledProps } from "styled-components/macro";
+import styled from "../../../styled-components";
 import { SVGProps } from "react";
 
 export const Svg = styled.svg`

@@ -4,23 +4,17 @@ import { Flex, Box } from "@rebass/grid";
 import { Anchor } from "../../atoms";
 
 const VCard = () => (
-  <Flex
-    id="hcard-Christoph-von-Krüchten"
-    className="vcard"
-    justifyContent="space-between"
-  >
+  <Flex id="hcard-Christoph-von-Krüchten" className="vcard" justifyContent="space-between">
     <Box>
       <Anchor className="url fn n" href="http://www.vonkruechten.de">
-        <span className="given-name">Christoph</span>{" "}
-        <span className="family-name">von Krüchten</span>
+        <span className="given-name">Christoph</span> <span className="family-name">von Krüchten</span>
       </Anchor>
       <br />
       <div>Softwarearchitektur, -Konzeption, -Entwicklung</div>
       <div className="adr">
         <span className="street-address">Siebachstr. 117</span>
         <br />
-        <span className="postal-code">50733</span>{" "}
-        <span className="locality">Köln</span>
+        <span className="postal-code">50733</span> <span className="locality">Köln</span>
       </div>
     </Box>
     <Box>
