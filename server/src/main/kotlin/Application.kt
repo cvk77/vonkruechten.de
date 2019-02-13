@@ -9,7 +9,9 @@ import io.ktor.application.install
 import io.ktor.features.ContentNegotiation
 import io.ktor.features.StatusPages
 import io.ktor.http.HttpStatusCode
+import io.ktor.http.ContentType
 import io.ktor.jackson.jackson
+import io.ktor.jackson.JacksonConverter
 import io.ktor.response.respond
 import io.ktor.routing.routing
 import io.ktor.server.engine.embeddedServer
@@ -19,8 +21,7 @@ import de.vonkruechten.server.kodein
 fun Application.mainModule() {
 
     install(ContentNegotiation) {
-        jackson {
-        }
+        register(ContentType("application", "vnd.vonkruechten.v1+json"), JacksonConverter())
     }
 
     install(StatusPages) {
