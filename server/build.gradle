@@ -7,7 +7,7 @@ buildscript {
 plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'application'
-    id 'org.flywaydb.flyway' version '5.2.4'
+    id 'org.flywaydb.flyway'
 }
 
 mainClassName = 'de.vonkruechten.server.ApplicationKt'
@@ -19,9 +19,10 @@ dependencies {
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "io.ktor:ktor-jackson:$ktor_version"
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+    implementation "org.mapstruct:mapstruct:$mapstruct_version"
     implementation "com.h2database:h2:$h2_version"
     implementation "com.zaxxer:HikariCP:$hikari_version"
-    implementation "com.h2database:h2:$h2_version"
+ 
 }
 
 flyway {

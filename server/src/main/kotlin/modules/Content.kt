@@ -1,8 +1,8 @@
 package de.vonkruechten.server.modules
 
-import de.vonkruechten.content.repositories.PersonRepository
-import de.vonkruechten.domain.Page
-import de.vonkruechten.domain.PageId
+import de.vonkruechten.domain.services.PageService
+import de.vonkruechten.domain.models.Page
+import de.vonkruechten.domain.models.PageId
 import de.vonkruechten.domain.exceptions.PageNotFoundException
 import io.ktor.application.Application
 import io.ktor.application.call
@@ -15,23 +15,17 @@ import org.kodein.di.generic.instance
 
 fun Application.contentModule(kodein: Kodein) {
 
-    val personService: PersonRepository by de.vonkruechten.server.kodein.instance()
+    val pageService: PageService by kodein.instance()
 
     routing {
         get() {
-            call.respond(personService.all())
+            call.respond(pageService.all())
         }
 
         get("/{id}") {
             val id = call.parameters.get("id") ?: throw BadRequestException("Parameter 'id' missing")
-            call.respond(personService.one(id))
+            call.respond(pageService.one(id))
         }
     }
-}
-
-fun get(pageId: PageId) = when (pageId) {
-    "" -> Page(pageId, pageId, "Lorem Ipsum")
-    "wat" -> Page(pageId, pageId, "Lirum Larum")
-    else -> throw PageNotFoundException(pageId)
 }
 
