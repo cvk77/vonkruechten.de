@@ -4,16 +4,17 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import de.vonkruechten.content.entities.Models
 import de.vonkruechten.content.entities.PageEntity
-import de.vonkruechten.content.repositories.PageRepository
 import de.vonkruechten.content.mappers.PageMapper
-import de.vonkruechten.domain.models.Page
-import de.vonkruechten.domain.services.PageService
+import de.vonkruechten.content.repositories.PageRepository
 import de.vonkruechten.content.services.PageServiceImpl
 import io.requery.kotlin.BlockingEntityStore
 import io.requery.sql.KotlinConfiguration
 import io.requery.sql.KotlinEntityDataStore
 import org.kodein.di.Kodein
-import org.kodein.di.generic.*
+import org.kodein.di.generic.bind
+import org.kodein.di.generic.instance
+import org.kodein.di.generic.provider
+import org.kodein.di.generic.singleton
 import org.mapstruct.factory.Mappers
 import javax.sql.DataSource
 

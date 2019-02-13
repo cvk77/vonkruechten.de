@@ -1,6 +1,7 @@
 package de.vonkruechten.content.entities
 
 import io.requery.*
+import io.requery.query.Result
 
 @Entity
 @Table(name = "page")
@@ -13,6 +14,6 @@ interface PageEntity : Persistable {
     
     @get:OneToMany(cascade = [CascadeAction.DELETE, CascadeAction.SAVE])
     @get:OrderBy("ordering")
-    var blocks: Set<BlockEntity>
+    val blocks: Result<BlockEntity>
 
 }
