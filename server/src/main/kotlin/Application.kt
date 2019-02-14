@@ -14,11 +14,12 @@ import io.ktor.response.respond
 import io.ktor.routing.routing
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import de.vonkruechten.server.ContentTypes
 
 fun Application.mainModule() {
 
     install(ContentNegotiation) {
-        register(ContentType("application", "vnd.vonkruechten.v1+json"), JacksonConverter())
+        register(ContentTypes.v1, JacksonConverter())
     }
 
     install(StatusPages) {
